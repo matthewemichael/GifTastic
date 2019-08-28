@@ -1,6 +1,8 @@
 var topics = ["Seinfeld", "Always Sunny in Philadelphia", "Game of Thrones", "Breaking Bad", "Sopranos", "Stranger Things", "The Office", "The Simpsons", "Parks and Recreation", "Arrested Development"];
+var newTopic = "";
 
 
+//  gets gifs from giphy api and displays on page
 function displayTopicGifs() {
 
     var selectedTopic = $(this).attr("data-title");
@@ -17,21 +19,25 @@ function displayTopicGifs() {
         var results = response.data;
 
         for (var i = 0; i < results.length; i++) {
-            var topicDiv = $("<span>");
+            // div created to hold gif 
+            var topicDiv = $("<div>");
+            // rating is displayed under each gif
             var p = $("<p>").text("Rating: " + results[i].rating.toUpperCase());
             var topicImage = $("<img>");
-
+            // add still and animated states for each gif
             topicImage.attr("src", results[i].images.fixed_height_still.url);
             topicImage.attr("data-still", results[i].images.fixed_height_still.url);
             topicImage.attr("data-animate", results[i].images.fixed_height.url)
             topicImage.attr("data-state", "still")
             topicImage.addClass("gif");
 
-
+            // append image to the div
             topicDiv.append(topicImage);
+            // prevent border from showing on page before gifs are loaded
             $("#gifs").css({
                 "border" : "1px solid #c6c6c6"
             });
+            // new gifs will be placed above previous selection
             topicDiv.append(p);
             $("#gifs").prepend(topicDiv);
         
@@ -39,10 +45,11 @@ function displayTopicGifs() {
     });
 }    
 
+// creates buttons from topics array
 function renderButtons() {
-
+    // previous div elements are emptied
     $('#topics').empty();
-
+    // loop through array to create button for each topic
     for (var i = 0; i < topics.length; i++) { 
         var buttons = $("<button>");
         buttons.addClass("btn btn-dark show");
@@ -52,10 +59,12 @@ function renderButtons() {
     } 
 }
 
-$("#gifs").on("click", ".gif", function(){
-    
+// click on gif to start or pause
+$("#gifs").on("click", ".gif", function(event){
+    event.preventDefault();
+    // gets state of clicked gif
     var state = $(this).attr("data-state");
-
+    // toggle between animated and still
     if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
@@ -66,6 +75,21 @@ $("#gifs").on("click", ".gif", function(){
             
 });
 
+// takes value from input box and adds to topics array, renderButtons adds new topic to button on page
+$(".submit").on("click", function(event){
+	event.preventDefault();
+
+	console.log("submit");
+	// sets inputted value to newTopic 
+	newTopic = $("#topic-input").val().trim();
+	// new topic is added to the topics array 
+	topics.push(newTopic);
+	console.log(topics);
+	// call the function that creates the new button
+	renderButtons();
+});
+
+// click on button to generate 10 gifs related to that topic
 $(document).on("click", ".show", displayTopicGifs);
 
 renderButtons();

@@ -7,12 +7,12 @@ button {
     margin: 5px;
 }
 
-.buttons {
+#topics {
     background: #e2e2e2;
     border-radius: 5px;
     border: 1px solid #c6c6c6;
     max-width: 1024px;
-    margin: 1vh auto 1vh auto;
+    margin: 1vh auto;
     text-align: center;
 }
 
@@ -20,22 +20,34 @@ button {
     background: #e2e2e2;
     border-radius: 5px;  
     max-width: 1024px;
-    max-width: 1024px;
     margin: 1vh auto;
-    text-align: center;
-    
-    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-around;
 }
 
-span {
-    float: left;
-    margin-right: 5px;
+#input-box {
+    background: #e2e2e2;
+    border-radius: 5px;
+    border: 1px solid #c6c6c6;
+    max-width: 1024px;
+    margin: 1vh auto;
+    padding: 10px;
+    text-align: right;
+}
+
+input {
+    border-radius: 5px;
 }
 
 p {
-    margin-bottom: 10px;
+    margin-bottom: 3vh;
 }
 
 img {
-    margin-top: 10px;
+    margin-top: 3vh;
+    margin-right: 1vw;
+    border-radius: 5px;
+    border: 2px solid #a6c3e4;
 }
