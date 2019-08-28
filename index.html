@@ -13,13 +13,19 @@
         <div class="row">
             <div class="col-sm-12 buttons" id="topics"></div>
         </div>
-        <div class="row">
-            <div class="col-sm-12" id="input-box">
+        <div class="row" id="input-content">
+            <div class="col-sm-6" id="content-buttons">
+                <button class="btn btn-dark" id="clear-content">Clear Gifs</button>
+                <button class="btn btn-dark" id="remove-topic">Remove Topic</button>
+                <button class="btn btn-dark" id="refresh-topic">Refresh Topics</button>
+            </div>
+            <div class="col-sm-6" id="input-box">
                 <form>
-                    <input type="text" id="topic-input">
-                    <input type="submit" class="submit" value="Add Gif Topic">
+                    <input type="text" id="topic-input" placeholder="Seach Giphy">
+                    <input type="submit" class="submit" value="Add New Topic">
                 </form>
             </div>
+
         </div>
         <div class="row">
             <div class="col-sm-12" id="gifs"></div>

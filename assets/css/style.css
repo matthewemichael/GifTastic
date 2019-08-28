@@ -3,8 +3,12 @@ html {
     margin: 0 auto;
 }
 
-button {
+button.show {
     margin: 5px;
+}
+
+button.remove-topic {
+    justify-content: left;
 }
 
 #topics {
@@ -12,7 +16,9 @@ button {
     border-radius: 5px;
     border: 1px solid #c6c6c6;
     max-width: 1024px;
-    margin: 1vh auto;
+    margin-top: 1vh;
+    margin-right: auto;
+    margin-left: auto;
     text-align: center;
 }
 
@@ -27,14 +33,21 @@ button {
     justify-content: space-around;
 }
 
-#input-box {
+#input-content {
     background: #e2e2e2;
     border-radius: 5px;
     border: 1px solid #c6c6c6;
     max-width: 1024px;
-    margin: 1vh auto;
+    margin-top: 1vh;
+    margin-right: auto;
+    margin-left: auto;
     padding: 10px;
+}
+
+#input-box {
     text-align: right;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #topic-input {
@@ -45,12 +58,17 @@ input {
     border-radius: 5px;
 }
 
+.submit {
+    margin-left: 5px;
+}
+
+
 p {
-    margin-bottom: 3vh;
+    margin-bottom: 2vh;
 }
 
 img {
-    margin-top: 3vh;
+    margin-top: 2vh;
     margin-right: 1vw;
     border-radius: 5px;
     border: 2px solid #a6c3e4;

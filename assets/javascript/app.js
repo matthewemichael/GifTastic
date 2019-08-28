@@ -1,11 +1,9 @@
 var topics = ["Seinfeld", "Always Sunny in Philadelphia", "Game of Thrones", "Breaking Bad", "Sopranos", "Stranger Things", "The Office", "The Simpsons", "Parks and Recreation", "Arrested Development"];
-var newTopic = "";
-
 
 //  gets gifs from giphy api and displays on page
 function displayTopicGifs() {
 
-    var selectedTopic = $(this).attr("data-title");
+    var selectedTopic = $(this).attr("data-name");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + selectedTopic + "&apikey=0EU2FV2cPQtQBcIb00uJ4hJlE4GKoGcR&limit=10";
 
     $.ajax({
@@ -27,8 +25,8 @@ function displayTopicGifs() {
             // add still and animated states for each gif
             topicImage.attr("src", results[i].images.fixed_height_still.url);
             topicImage.attr("data-still", results[i].images.fixed_height_still.url);
-            topicImage.attr("data-animate", results[i].images.fixed_height.url)
-            topicImage.attr("data-state", "still")
+            topicImage.attr("data-animate", results[i].images.fixed_height.url);
+            topicImage.attr("data-state", "still");
             topicImage.addClass("gif");
 
             // append image to the div
@@ -45,15 +43,40 @@ function displayTopicGifs() {
     });
 }    
 
-// creates buttons from topics array
-function renderButtons() {
-    // previous div elements are emptied
-    $('#topics').empty();
+// removes displayed gifs
+function clearContent() {
+    $("#gifs").empty();
+    $("#gifs").removeAttr( 'style' );
+}
+
+// removes the last topic from display
+function removeButton() {
+    topics.pop(topics);  
+    renderButtons();     
+    return false;          
+};
+
+function refreshButtons() {
+    $("#topics").empty();
     // loop through array to create button for each topic
     for (var i = 0; i < topics.length; i++) { 
         var buttons = $("<button>");
         buttons.addClass("btn btn-dark show");
-        buttons.attr("data-title", topics[i]);
+        buttons.attr("data-name", topics[i]);
+        buttons.text(topics[i]);
+        $('#topics').append(buttons);
+    } 
+}
+
+// creates buttons from topics array
+function renderButtons() {
+    // previous div elements are emptied
+    $("#topics").empty();
+    // loop through array to create button for each topic
+    for (var i = 0; i < topics.length; i++) { 
+        var buttons = $("<button>");
+        buttons.addClass("btn btn-dark show");
+        buttons.attr("data-name", topics[i]);
         buttons.text(topics[i]);
         $('#topics').append(buttons);
     } 
@@ -82,14 +105,19 @@ $(".submit").on("click", function(event){
 	console.log("submit");
 	// sets inputted value to newTopic 
 	newTopic = $("#topic-input").val().trim().replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()});
-	// new topic is added to the topics array 
-	topics.push(newTopic);
-	console.log(topics);
+    // clears previous entry from form field after submit
+    $("#topic-input").val("")
+    // new topic is added to the topics array 
+    topics.push(newTopic);
 	// call the function that creates the new button
 	renderButtons();
 });
 
 // click on button to generate 10 gifs related to that topic
 $(document).on("click", ".show", displayTopicGifs);
+
+$("#clear-content").on("click", clearContent);
+$("#remove-topic").on("click", removeButton);
+$("#refresh-topic").on("click", refreshButtons);
 
 renderButtons();
