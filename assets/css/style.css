@@ -7,10 +7,6 @@ button.show {
     margin: 5px;
 }
 
-button.remove-topic {
-    justify-content: left;
-}
-
 #topics {
     background: #e2e2e2;
     border-radius: 5px;
@@ -19,7 +15,24 @@ button.remove-topic {
     margin-top: 1vh;
     margin-right: auto;
     margin-left: auto;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#input-content {
+    background: #e2e2e2;
+    border-radius: 5px;
+    border: 1px solid #c6c6c6;
+    max-width: 1024px;
+    margin-top: 1vh;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 
 #gifs {
@@ -33,21 +46,10 @@ button.remove-topic {
     justify-content: space-around;
 }
 
-#input-content {
-    background: #e2e2e2;
-    border-radius: 5px;
-    border: 1px solid #c6c6c6;
-    max-width: 1024px;
-    margin-top: 1vh;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 10px;
-}
-
 #input-box {
-    text-align: right;
     margin-top: auto;
     margin-bottom: auto;
+    text-align: right;
 }
 
 #topic-input {
@@ -72,4 +74,8 @@ img {
     margin-right: 1vw;
     border-radius: 5px;
     border: 2px solid #a6c3e4;
+}
+
+#content-buttons {
+    float: left;
 }

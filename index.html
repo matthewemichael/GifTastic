@@ -10,16 +10,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 buttons" id="topics"></div>
+        <div class="row" id="topics">
+            <div class="col-sm-12 buttons"></div>
         </div>
         <div class="row" id="input-content">
-            <div class="col-sm-6" id="content-buttons">
+            <div class="col-sm-4 col-md-6 col-lg-6" id="content-buttons">
                 <button class="btn btn-dark" id="clear-content">Clear Gifs</button>
                 <button class="btn btn-dark" id="remove-topic">Remove Topic</button>
-                <button class="btn btn-dark" id="refresh-topic">Refresh Topics</button>
+                <button class="btn btn-dark" id="reset-topic">Reset Topics</button>
             </div>
-            <div class="col-sm-6" id="input-box">
+            <div class="col-sm-8 col-md-6 col-lg-6" id="input-box">
                 <form>
                     <input type="text" id="topic-input" placeholder="Seach Giphy">
                     <input type="submit" class="submit" value="Add New Topic">
@@ -27,8 +27,8 @@
             </div>
 
         </div>
-        <div class="row">
-            <div class="col-sm-12" id="gifs"></div>
+        <div class="row" id="gifs">
+            <div class="col-sm-12"></div>
         </div>
     </div>
 
