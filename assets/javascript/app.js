@@ -81,7 +81,7 @@ $(".submit").on("click", function(event){
 
 	console.log("submit");
 	// sets inputted value to newTopic 
-	newTopic = $("#topic-input").val().trim();
+	newTopic = $("#topic-input").val().trim().replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()});
 	// new topic is added to the topics array 
 	topics.push(newTopic);
 	console.log(topics);
