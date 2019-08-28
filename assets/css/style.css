@@ -18,12 +18,12 @@ button {
 
 #gifs {
     background: #e2e2e2;
-    border-radius: 5px;
-    border: 1px solid #c6c6c6;
+    border-radius: 5px;  
     max-width: 1024px;
     max-width: 1024px;
     margin: 1vh auto;
     text-align: center;
+    
     
 }
 
@@ -32,3 +32,10 @@ span {
     margin-right: 5px;
 }
 
+p {
+    margin-bottom: 10px;
+}
+
+img {
+    margin-top: 10px;
+}
