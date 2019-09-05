@@ -10,19 +10,27 @@
 </head>
 <body>
     <div class="container">
-        <div class="row" id="topics">
-            <div class="col-sm-12 buttons"></div>
+        <div class="row" id="header">
+            <div class="col-sm-12 intro">
+                <p><h1>GifTastic!</h1></p>
+                <p><h5>Select a popular TV show button to display some gifs. You can also search Giphy to add your own! 
+                    <br>Click each gif to play and pause.
+                    </h5>
+                </p>
+            </div>
+            <hr>
+            <div class="col-sm-12 buttons" id="topics"></div>
         </div>
         <div class="row" id="input-content">
             <div class="col-sm-4 col-md-6 col-lg-6" id="content-buttons">
-                <button class="btn btn-dark" id="clear-content">Clear Gifs</button>
                 <button class="btn btn-dark" id="remove-topic">Remove Topic</button>
                 <button class="btn btn-dark" id="reset-topic">Reset Topics</button>
+                <button class="btn btn-dark" id="clear-content">Clear Gifs</button>
             </div>
             <div class="col-sm-8 col-md-6 col-lg-6" id="input-box">
                 <form>
                     <input type="text" id="topic-input" placeholder="Seach Giphy">
-                    <input type="submit" class="submit" value="Add New Topic">
+                    <input type="submit" class="submit btn btn-success" value="Add New Topic">
                 </form>
             </div>
 

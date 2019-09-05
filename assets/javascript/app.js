@@ -68,7 +68,7 @@ function resetTopics() {
     $("#topics").empty();
     for (var i = 0; i < topics.length; i++) { 
         var buttons = $("<button>");
-        buttons.addClass("btn btn-dark show");
+        buttons.addClass("btn btn-info show");
         buttons.attr("data-name", topics[i]);
         buttons.text(topics[i]);
         $('#topics').append(buttons);
@@ -84,7 +84,7 @@ function renderButtons() {
     // loop through array to create button for each topic
     for (var i = 0; i < topics.length; i++) { 
         var buttons = $("<button>");
-        buttons.addClass("btn btn-dark show");
+        buttons.addClass("btn btn-info show");
         buttons.attr("data-name", topics[i]);
         buttons.text(topics[i]);
         $('#topics').append(buttons);
